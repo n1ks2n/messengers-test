@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Middleware;
+namespace MessengersTest\Http\Middleware;
 
 use Closure;
-use Illuminate\Support\Facades\Auth;
+use Auth;
 
 class RedirectIfAuthenticated
 {

@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace MessengersTest\Http\Controllers\Auth;
 
-use App\User;
-use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Validator as BaseValidator;
+use Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Hash;
+use MessengersTest\Http\Controllers\Controller;
+use MessengersTest\User;
 
 class RegisterController extends Controller
 {
@@ -43,10 +44,11 @@ class RegisterController extends Controller
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
+     * @param  array $data
+     *
+     * @return BaseValidator
      */
-    protected function validator(array $data)
+    protected function validator(array $data): BaseValidator
     {
         return Validator::make($data, [
             'name' => 'required|string|max:255',
@@ -58,10 +60,11 @@ class RegisterController extends Controller
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
-     * @return \App\User
+     * @param  array $data
+     *
+     * @return User
      */
-    protected function create(array $data)
+    protected function create(array $data): User
     {
         return User::create([
             'name' => $data['name'],

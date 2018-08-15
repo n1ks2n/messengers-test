@@ -7,7 +7,7 @@ use Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Hash;
 use MessengersTest\Http\Controllers\Controller;
-use MessengersTest\User;
+use MessengersTest\Entities\User;
 
 class RegisterController extends Controller
 {

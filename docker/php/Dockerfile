@@ -31,6 +31,7 @@ RUN apk --update add \
         php7-xmlreader \
         php7-xmlwriter \
         php7-zip \
+        git \
     && rm -rf /var/cache/apk/*
 
 COPY ./template/php.ini /etc/php7/conf.d/50-setting.ini

@@ -14,7 +14,7 @@ use OpenApi\Annotations as OA;
  *      title="L5 Swagger API",
  *      description="L5 Swagger API description",
  *      @OA\Contact(
- *          email="nikita.pimoshenko@gmail.com"
+ *          email="nikita.pimoshenko@gmail.com",
  *      ),
  * )
  * @OA\SecurityScheme(
@@ -24,14 +24,98 @@ use OpenApi\Annotations as OA;
  *      scheme="bearer",
  *      bearerFormat="JWT"
  * )
+ * @OA\Server(
+ *     url="http://localhost:8510/api/v1",
+ *     description="Dev messenger api server",
+ * )
  */
 class MessageController extends Controller
 {
+    /**
+     * @OA\Get(
+     *     path="/messengers",
+     *     summary="Get messengers list",
+     *     operationId="getMessengers",
+     *     @OA\Response(
+     *          response=200,
+     *          description="Returned messengers list",
+     *     ),
+     *     security={
+     *         {"bearerAuth": {}}
+     *     }
+     * )
+     *
+     * @return Response
+     */
+    public function getMessengers(): Response
+    {
+
+    }
+
+    /**
+     * @OA\Get(
+     *     path="/users",
+     *     summary="Get users list",
+     *     operationId="getUsers",
+     *     @OA\Response(
+     *          response=200,
+     *          description="Returned messengers list",
+     *     ),
+     *     security={
+     *         {"bearerAuth": {}}
+     *     }
+     * )
+     *
+     * @return Response
+     */
+    public function getUsers(): Response
+    {
+
+    }
+
     /**
      * @OA\Post(
      *     path="/messages",
      *     summary="Create new message",
      *     operationId="createMessages",
+     *     @OA\RequestBody(
+     *          description="Create messages object",
+     *          @OA\MediaType(
+     *              mediaType="application/json",
+     *              @OA\Schema(
+     *                  type="object",
+     *                  required={"users", "text", "messengers"},
+     *                  @OA\Property(
+     *                      property="users",
+     *                      type="array",
+     *                      description="Array of user ids",
+     *                      example={1,2,3},
+     *                      @OA\Items(
+     *                          type="integer",
+     *                          format="int32",
+     *                          minimum="1",
+     *                      ),
+     *                  ),
+     *                  @OA\Property(
+     *                      property="text",
+     *                      type="string",
+     *                      description="Message text",
+     *                      example="Text me baby one more time!"
+     *                  ),
+     *                  @OA\Property(
+     *                      property="messengers",
+     *                      type="array",
+     *                      description="Messenger ids array.",
+     *                      example={1,2,3},
+     *                      @OA\Items(
+     *                          type="integer",
+     *                          format="int32",
+     *                          minimum="1",
+     *                      ),
+     *                  ),
+     *              )
+     *          ),
+     *     ),
      *     @OA\Response(
      *          response=201,
      *          description="Successfully created",
@@ -49,4 +133,6 @@ class MessageController extends Controller
     {
 
     }
+
+
 }

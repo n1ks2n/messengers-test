@@ -16,7 +16,7 @@ class MessageStatus
     /**
      * @return array
      */
-    public function getTextValues(): array
+    public static function getTextValues(): array
     {
         return [
             self::CREATED => 'created',

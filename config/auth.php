@@ -65,9 +65,9 @@ return [
     */
 
     'providers' => [
-        'users' => [
+        'clients' => [
             'driver' => 'eloquent',
-            'model' => MessengersTest\Entities\User::class,
+            'model' => MessengersTest\Entities\Client::class,
         ],
 
         // 'users' => [

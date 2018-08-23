@@ -14,7 +14,7 @@ class Messenger
     /**
      * @return array
      */
-    public function getTextValues(): array
+    public static function getTextValues(): array
     {
         return [
             self::TELEGRAM => 'Telegram',

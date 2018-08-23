@@ -5,7 +5,7 @@ namespace MessengersTest\Entities;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable
+class Client extends Authenticatable
 {
     use Notifiable;
 

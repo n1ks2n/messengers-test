@@ -30,7 +30,7 @@ return [
     ],
 
     'stripe' => [
-        'model' => MessengersTest\Entities\User::class,
+        'model' => MessengersTest\Entities\Client::class,
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],
